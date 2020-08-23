@@ -27,32 +27,34 @@ class AuthViewController: UIViewController {
         view.backgroundColor = .white
         setupConstraints()
     }
-    
-    //MARK: - Setup Constraints for logo and stackView
-    private func setupConstraints() {
-        
-        let googleView = ButtomView(label: googleLabel, buttom: googleButton)
-        let emailView = ButtomView(label: emailLabel, buttom: emailButton)
-        let loginView = ButtomView(label: loginLabel, buttom: loginButton)
-        
-        let stackView = UIStackView(arrangedSubviews: [googleView, emailView, loginView], axis: .vertical, spacing: 40)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(logoImageView)
-        view.addSubview(stackView)
-        
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 160),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-        ])
-    }
+}
+
+//MARK: - Setup Constraints for logo and stackView
+extension AuthViewController {
+       private func setupConstraints() {
+           
+           let googleView = ButtomView(label: googleLabel, buttom: googleButton)
+           let emailView = ButtomView(label: emailLabel, buttom: emailButton)
+           let loginView = ButtomView(label: loginLabel, buttom: loginButton)
+           
+           let stackView = UIStackView(arrangedSubviews: [googleView, emailView, loginView], axis: .vertical, spacing: 40)
+           stackView.translatesAutoresizingMaskIntoConstraints = false
+           
+           view.addSubview(logoImageView)
+           view.addSubview(stackView)
+           
+           logoImageView.translatesAutoresizingMaskIntoConstraints = false
+           NSLayoutConstraint.activate([
+               logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+               logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+           ])
+           
+           NSLayoutConstraint.activate([
+               stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 160),
+               stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+               stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+           ])
+       }
 }
 
 

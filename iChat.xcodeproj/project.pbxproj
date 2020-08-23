@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1142563D24F1D14F00D64745 /* ButtomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142563C24F1D14F00D64745 /* ButtomView.swift */; };
 		1142563F24F1DD0100D64745 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142563E24F1DD0100D64745 /* UIStackView + Extension.swift */; };
+		1144C51624F2911600D10785 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144C51524F2911600D10785 /* SignUpViewController.swift */; };
+		1144C51824F296E900D10785 /* OneLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144C51724F296E900D10785 /* OneLineTextField.swift */; };
 		1146660224F17CA100281B40 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660124F17CA100281B40 /* UIButton + Extension.swift */; };
 		1146660424F182A900281B40 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660324F182A900281B40 /* UIFont + Extension.swift */; };
 		1146660624F187ED00281B40 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660524F187ED00281B40 /* UIColor + Extension.swift */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		1142563C24F1D14F00D64745 /* ButtomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomView.swift; sourceTree = "<group>"; };
 		1142563E24F1DD0100D64745 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
+		1144C51524F2911600D10785 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1144C51724F296E900D10785 /* OneLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineTextField.swift; sourceTree = "<group>"; };
 		1146660124F17CA100281B40 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		1146660324F182A900281B40 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		1146660524F187ED00281B40 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				1142563C24F1D14F00D64745 /* ButtomView.swift */,
+				1144C51724F296E900D10785 /* OneLineTextField.swift */,
 				1142563A24F1C8D600D64745 /* UIKit */,
 			);
 			path = Extensions;
@@ -93,6 +98,7 @@
 				11EAAD2424EEEC4100BA3690 /* AppDelegate.swift */,
 				11EAAD2624EEEC4100BA3690 /* SceneDelegate.swift */,
 				11EAAD2824EEEC4100BA3690 /* AuthViewController.swift */,
+				1144C51524F2911600D10785 /* SignUpViewController.swift */,
 				1142563B24F1C8EB00D64745 /* Extensions */,
 				11EAAD2D24EEEC4100BA3690 /* Assets.xcassets */,
 				11EAAD2F24EEEC4100BA3690 /* LaunchScreen.storyboard */,
@@ -171,9 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1144C51624F2911600D10785 /* SignUpViewController.swift in Sources */,
 				1146660424F182A900281B40 /* UIFont + Extension.swift in Sources */,
 				1142563D24F1D14F00D64745 /* ButtomView.swift in Sources */,
 				11EAAD2924EEEC4100BA3690 /* AuthViewController.swift in Sources */,
+				1144C51824F296E900D10785 /* OneLineTextField.swift in Sources */,
 				1142563F24F1DD0100D64745 /* UIStackView + Extension.swift in Sources */,
 				11EAAD2524EEEC4100BA3690 /* AppDelegate.swift in Sources */,
 				1146660824F18B0900281B40 /* UILabel + Extension.swift in Sources */,
