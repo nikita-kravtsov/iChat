@@ -20,6 +20,9 @@
 		1146660624F187ED00281B40 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660524F187ED00281B40 /* UIColor + Extension.swift */; };
 		1146660824F18B0900281B40 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660724F18B0900281B40 /* UILabel + Extension.swift */; };
 		1146660A24F18C9A00281B40 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660924F18C9A00281B40 /* UIImageView + Extension.swift */; };
+		1148992A24FCD54600E21958 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 1148992824FCD54600E21958 /* waitingChats.json */; };
+		1148992B24FCD54600E21958 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 1148992924FCD54600E21958 /* activeChats.json */; };
+		1148992D24FCD66000E21958 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148992C24FCD66000E21958 /* Bundle-Decodable.swift */; };
 		1152B83C24FAA1BC00735DE4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B83B24FAA1BC00735DE4 /* ListViewController.swift */; };
 		1152B83F24FAAC4700735DE4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */; };
 		1152B84324FAACCC00735DE4 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B84224FAACCC00735DE4 /* PeopleViewController.swift */; };
@@ -44,6 +47,9 @@
 		1146660524F187ED00281B40 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		1146660724F18B0900281B40 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		1146660924F18C9A00281B40 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		1148992824FCD54600E21958 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = waitingChats.json; path = ../../../../../waitingChats.json; sourceTree = "<group>"; };
+		1148992924FCD54600E21958 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = activeChats.json; path = ../../../../../activeChats.json; sourceTree = "<group>"; };
+		1148992C24FCD66000E21958 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		1152B83B24FAA1BC00735DE4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1152B84224FAACCC00735DE4 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,8 @@
 				1146660924F18C9A00281B40 /* UIImageView + Extension.swift */,
 				1142563E24F1DD0100D64745 /* UIStackView + Extension.swift */,
 				1144BFB624F46A9700E8AD97 /* SegmentedControl + Extension.swift */,
+				1148992924FCD54600E21958 /* activeChats.json */,
+				1148992824FCD54600E21958 /* waitingChats.json */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -87,6 +95,7 @@
 				1144BFB224F429C800E8AD97 /* AddPhotoView.swift */,
 				1142563C24F1D14F00D64745 /* ButtomView.swift */,
 				1144C51724F296E900D10785 /* OneLineTextField.swift */,
+				1148992C24FCD66000E21958 /* Bundle-Decodable.swift */,
 				1142563A24F1C8D600D64745 /* UIKit */,
 			);
 			path = Extensions;
@@ -202,8 +211,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1148992A24FCD54600E21958 /* waitingChats.json in Resources */,
 				11EAAD3124EEEC4100BA3690 /* LaunchScreen.storyboard in Resources */,
 				11EAAD2E24EEEC4100BA3690 /* Assets.xcassets in Resources */,
+				1148992B24FCD54600E21958 /* activeChats.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +232,7 @@
 				1142563D24F1D14F00D64745 /* ButtomView.swift in Sources */,
 				1152B84324FAACCC00735DE4 /* PeopleViewController.swift in Sources */,
 				11EAAD2924EEEC4100BA3690 /* AuthViewController.swift in Sources */,
+				1148992D24FCD66000E21958 /* Bundle-Decodable.swift in Sources */,
 				1144BFB124F4280F00E8AD97 /* SetupProfileViewController.swift in Sources */,
 				1144C51824F296E900D10785 /* OneLineTextField.swift in Sources */,
 				1142563F24F1DD0100D64745 /* UIStackView + Extension.swift in Sources */,
