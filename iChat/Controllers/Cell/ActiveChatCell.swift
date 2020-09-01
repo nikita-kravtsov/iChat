@@ -8,13 +8,6 @@
 
 import UIKit
 
-protocol SelfConfiguringCell {
-    
-    static var reuseId: String { get }
-    func configure(with value: MChat)
-    
-}
-
 class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
