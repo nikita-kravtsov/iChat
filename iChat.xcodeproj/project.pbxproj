@@ -26,6 +26,7 @@
 		1152B83C24FAA1BC00735DE4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B83B24FAA1BC00735DE4 /* ListViewController.swift */; };
 		1152B83F24FAAC4700735DE4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */; };
 		1152B84324FAACCC00735DE4 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B84224FAACCC00735DE4 /* PeopleViewController.swift */; };
+		117BDC9224FEB4BD00FA9102 /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BDC9124FEB4BD00FA9102 /* ActiveChatCell.swift */; };
 		11EAAD2524EEEC4100BA3690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EAAD2424EEEC4100BA3690 /* AppDelegate.swift */; };
 		11EAAD2724EEEC4100BA3690 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EAAD2624EEEC4100BA3690 /* SceneDelegate.swift */; };
 		11EAAD2924EEEC4100BA3690 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EAAD2824EEEC4100BA3690 /* AuthViewController.swift */; };
@@ -53,6 +54,7 @@
 		1152B83B24FAA1BC00735DE4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1152B84224FAACCC00735DE4 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		117BDC9124FEB4BD00FA9102 /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
 		11EAAD2124EEEC4100BA3690 /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EAAD2424EEEC4100BA3690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11EAAD2624EEEC4100BA3690 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,11 +117,20 @@
 		1152B84424FAB39200735DE4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				117BDC9024FEB4A100FA9102 /* Cell */,
 				1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */,
 				1152B83B24FAA1BC00735DE4 /* ListViewController.swift */,
 				1152B84224FAACCC00735DE4 /* PeopleViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		117BDC9024FEB4A100FA9102 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				117BDC9124FEB4BD00FA9102 /* ActiveChatCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		11EAAD1824EEEC4100BA3690 = {
@@ -229,6 +240,7 @@
 				1152B83C24FAA1BC00735DE4 /* ListViewController.swift in Sources */,
 				1144C51624F2911600D10785 /* SignUpViewController.swift in Sources */,
 				1146660424F182A900281B40 /* UIFont + Extension.swift in Sources */,
+				117BDC9224FEB4BD00FA9102 /* ActiveChatCell.swift in Sources */,
 				1142563D24F1D14F00D64745 /* ButtomView.swift in Sources */,
 				1152B84324FAACCC00735DE4 /* PeopleViewController.swift in Sources */,
 				11EAAD2924EEEC4100BA3690 /* AuthViewController.swift in Sources */,
