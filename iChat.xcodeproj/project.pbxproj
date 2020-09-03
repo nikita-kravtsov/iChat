@@ -26,6 +26,8 @@
 		1148992A24FCD54600E21958 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 1148992824FCD54600E21958 /* waitingChats.json */; };
 		1148992B24FCD54600E21958 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 1148992924FCD54600E21958 /* activeChats.json */; };
 		1148992D24FCD66000E21958 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148992C24FCD66000E21958 /* Bundle-Decodable.swift */; };
+		11507A2F250154530008EBD8 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11507A2E250154530008EBD8 /* UserCell.swift */; };
+		11507A312501568C0008EBD8 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11507A302501568C0008EBD8 /* UIViewController + Extension.swift */; };
 		1152B83C24FAA1BC00735DE4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B83B24FAA1BC00735DE4 /* ListViewController.swift */; };
 		1152B83F24FAAC4700735DE4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */; };
 		1152B84324FAACCC00735DE4 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B84224FAACCC00735DE4 /* PeopleViewController.swift */; };
@@ -61,6 +63,8 @@
 		1148992824FCD54600E21958 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = waitingChats.json; path = ../../../../../waitingChats.json; sourceTree = "<group>"; };
 		1148992924FCD54600E21958 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = activeChats.json; path = ../../../../../activeChats.json; sourceTree = "<group>"; };
 		1148992C24FCD66000E21958 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		11507A2E250154530008EBD8 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		11507A302501568C0008EBD8 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		1152B83B24FAA1BC00735DE4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1152B84224FAACCC00735DE4 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 		1142563A24F1C8D600D64745 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				11507A302501568C0008EBD8 /* UIViewController + Extension.swift */,
 				1146660124F17CA100281B40 /* UIButton + Extension.swift */,
 				1146660324F182A900281B40 /* UIFont + Extension.swift */,
 				1146660524F187ED00281B40 /* UIColor + Extension.swift */,
@@ -165,6 +170,7 @@
 			children = (
 				117BDC9124FEB4BD00FA9102 /* ActiveChatCell.swift */,
 				117BDC9524FEF6B100FA9102 /* WaitingChatCell.swift */,
+				11507A2E250154530008EBD8 /* UserCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -302,6 +308,8 @@
 				11EAAD2524EEEC4100BA3690 /* AppDelegate.swift in Sources */,
 				1146660824F18B0900281B40 /* UILabel + Extension.swift in Sources */,
 				1144BFB724F46A9700E8AD97 /* SegmentedControl + Extension.swift in Sources */,
+				11507A2F250154530008EBD8 /* UserCell.swift in Sources */,
+				11507A312501568C0008EBD8 /* UIViewController + Extension.swift in Sources */,
 				117BDC9B24FEFAD100FA9102 /* SelfConfiguringCell.swift in Sources */,
 				117BDC9624FEF6B100FA9102 /* WaitingChatCell.swift in Sources */,
 				1146660A24F18C9A00281B40 /* UIImageView + Extension.swift in Sources */,

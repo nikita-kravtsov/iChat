@@ -9,6 +9,7 @@
 import UIKit
 
 class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -18,7 +19,7 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
         setupConstraints()
     }
     static var reuseId: String = "ActiveChatCell"
- 
+    
     var friendName = UILabel(text: " ", font: .laoSangamMN20())
     var lastMessage = UILabel(text: " ", font: .laoSangamMN18())
     var friendImageView = UIImageView()
@@ -27,12 +28,13 @@ class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
                                     startColor: #colorLiteral(red: 0.7882352941, green: 0.631372549, blue: 0.9411764706, alpha: 1),
                                     finishColor: #colorLiteral(red: 0.4784313725, green: 0.6980392157, blue: 0.9215686275, alpha: 1))
     
-    func configure(with value: MChat) {
-        friendName.text = value.userName
-        lastMessage.text = value.lastMessage
-        friendImageView.image = UIImage(named: value.userImageString)
+    func configure<U>(with value: U) where U : Hashable {
+        guard let chat: MChat = value as? MChat else { return }
+        friendName.text = chat.userName
+        lastMessage.text = chat.lastMessage
+        friendImageView.image = UIImage(named: chat.userImageString)
         
-       }
+    }
     
     
     required init?(coder: NSCoder) {
