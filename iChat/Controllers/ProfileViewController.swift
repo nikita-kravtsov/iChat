@@ -18,8 +18,12 @@ class ProfileViewController: UIViewController {
     let profileImage = UIImageView(image: #imageLiteral(resourceName: "human7"), contentMode: .scaleAspectFill)
     let nameLabel = UILabel(text: "Peter Parker", font: .systemFont(ofSize: 20, weight: .light))
     let aboutMeLabel = UILabel(text: "My name is Peter. I am film director!", font: .systemFont(ofSize: 15, weight: .light))
-    let textField = UITextField()
+    let textField = InsertableTextField()
     let containerView = UIView()
+    
+    @objc func sendMessage() {
+        print(#function)
+    }
 }
 
 // MARK: - Setup Constraints
@@ -36,6 +40,13 @@ extension ProfileViewController {
         containerView.backgroundColor = .mainWhite()
         aboutMeLabel.numberOfLines = 0
         textField.borderStyle = .roundedRect
+        
+        
+        if let button = textField.rightView as? UIButton {
+            button.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
+        }
+        
+        
         
         view.addSubview(profileImage)
         view.addSubview(containerView)
