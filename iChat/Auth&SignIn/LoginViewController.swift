@@ -15,6 +15,12 @@ class LoginViewController: UIViewController {
         googleButton.customizeGoogleButton()
         view.backgroundColor = .white
         setupConstraints()
+        
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func loginButtonTapped() {
+        print(#function)
     }
     
     let welcomeBackLabel = UILabel(text: "Welcom back!", font: .avenir26())
@@ -60,12 +66,12 @@ extension LoginViewController {
         signUpStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            welcomeBackLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            welcomeBackLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             welcomeBackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: welcomeBackLabel.bottomAnchor, constant: 100),
+            stackView.topAnchor.constraint(equalTo: welcomeBackLabel.bottomAnchor, constant: 60),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40)
         ])

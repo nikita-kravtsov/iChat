@@ -14,6 +14,12 @@ class SignUpViewController: UIViewController {
         
         view.backgroundColor = .white
         setupConstraints()
+        
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func signUpButtonTapped() {
+        print(#function)
     }
     
     let welcomLabel = UILabel(text: "Hello!", font: .avenir26())
@@ -27,8 +33,8 @@ class SignUpViewController: UIViewController {
     let passwordTextField = OneLineTextField(font: .avenir20())
     let confirmPasswordTextField = OneLineTextField(font: .avenir20())
     
-    let signUpButtom = UIButton(title: "Sign Up", titleColor: .white, backgroundColor: .buttonDark(), cornerRadius: 4)
-    let loginButtom = UIButton(title: "Login", titleColor: .buttonRed(), backgroundColor: .white)
+    let signUpButton = UIButton(title: "Sign Up", titleColor: .white, backgroundColor: .buttonDark(), cornerRadius: 4)
+    let loginButton = UIButton(title: "Login", titleColor: .buttonRed(), backgroundColor: .white)
 }
 
 extension SignUpViewController {
@@ -37,11 +43,11 @@ extension SignUpViewController {
         let emailStackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField], axis: .vertical, spacing: 0)
         let passwordStackView = UIStackView(arrangedSubviews: [passwordLabel, passwordTextField], axis: .vertical, spacing: 0)
         let confirmPasswordStackView = UIStackView(arrangedSubviews: [confirmPasswordLabel, confirmPasswordTextField], axis: .vertical, spacing: 0)
-        signUpButtom.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        let stackView = UIStackView(arrangedSubviews: [emailStackView, passwordStackView, confirmPasswordStackView, signUpButtom], axis: .vertical, spacing: 40)
+        let stackView = UIStackView(arrangedSubviews: [emailStackView, passwordStackView, confirmPasswordStackView, signUpButton], axis: .vertical, spacing: 40)
        
-        let loginStackView = UIStackView(arrangedSubviews: [alreadyOnboard, loginButtom], axis: .horizontal, spacing: -1)
+        let loginStackView = UIStackView(arrangedSubviews: [alreadyOnboard, loginButton], axis: .horizontal, spacing: -1)
        
         
         welcomLabel.translatesAutoresizingMaskIntoConstraints = false
