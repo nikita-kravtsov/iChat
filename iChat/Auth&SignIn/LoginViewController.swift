@@ -21,6 +21,16 @@ class LoginViewController: UIViewController {
     
     @objc private func loginButtonTapped() {
         print(#function)
+        AuthService.shared.login(email: emailTextField.text, password: passwordTextField.text) { (result) in
+            switch result {
+                
+            case .success(let user):
+                print(user)
+                self.showAlert(withTitle: "Вы успешно", andMessage: "авторизованны!")
+            case .failure(let error):
+                self.showAlert(withTitle: "Ошибка при авторизации!", andMessage: error.localizedDescription)
+            }
+        }
     }
     
     let welcomeBackLabel = UILabel(text: "Welcom back!", font: .avenir26())

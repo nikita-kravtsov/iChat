@@ -20,6 +20,17 @@ class SignUpViewController: UIViewController {
     
     @objc private func signUpButtonTapped() {
         print(#function)
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: confirmPasswordLabel.text) { (result) in
+            
+            switch result {
+                
+            case .success(let user):
+                self.showAlert(withTitle: "Вы успешно", andMessage: "Зарегистрировались!")
+                print(user)
+            case .failure(let error):
+                self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
+            }
+        }
     }
     
     let welcomLabel = UILabel(text: "Hello!", font: .avenir26())
@@ -46,9 +57,9 @@ extension SignUpViewController {
         signUpButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         let stackView = UIStackView(arrangedSubviews: [emailStackView, passwordStackView, confirmPasswordStackView, signUpButton], axis: .vertical, spacing: 40)
-       
+        
         let loginStackView = UIStackView(arrangedSubviews: [alreadyOnboard, loginButton], axis: .horizontal, spacing: -1)
-       
+        
         
         welcomLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,23 +70,36 @@ extension SignUpViewController {
         view.addSubview(loginStackView)
         
         NSLayoutConstraint.activate([
-                   welcomLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-                   welcomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-               ])
+            welcomLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
+            welcomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
         
         NSLayoutConstraint.activate([
-                   stackView.topAnchor.constraint(equalTo: welcomLabel.bottomAnchor, constant: 160),
-                   stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-                   stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-               ])
+            stackView.topAnchor.constraint(equalTo: welcomLabel.bottomAnchor, constant: 160),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+        ])
         
         NSLayoutConstraint.activate([
-                   loginStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
-                   loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-                   loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-               ])
+            loginStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
+            loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+        ])
     }
 }
+
+extension UIViewController {
+    
+    func showAlert(withTitle title: String, andMessage message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
+
 
 //MARK: - SwiftUI Canvas
 import SwiftUI
