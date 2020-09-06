@@ -28,6 +28,8 @@
 		11470BBF25006B9400DA7FBD /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 11470BBE25006B9400DA7FBD /* users.json */; };
 		1147A89A2503FFA200F9D0A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1147A8992503FFA200F9D0A0 /* GoogleService-Info.plist */; };
 		1147A89D2504329600F9D0A0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147A89C2504329600F9D0A0 /* AuthService.swift */; };
+		1147A89F250454D100F9D0A0 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147A89E250454D100F9D0A0 /* Validators.swift */; };
+		1147A8A12504575000F9D0A0 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147A8A02504575000F9D0A0 /* AuthError.swift */; };
 		1148992A24FCD54600E21958 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 1148992824FCD54600E21958 /* waitingChats.json */; };
 		1148992B24FCD54600E21958 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 1148992924FCD54600E21958 /* activeChats.json */; };
 		1148992D24FCD66000E21958 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148992C24FCD66000E21958 /* Bundle-Decodable.swift */; };
@@ -72,6 +74,8 @@
 		11470BBE25006B9400DA7FBD /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = users.json; path = "../../../../../../[SwiftBook] Программирование на Swift/28. Курс По Мессенджеру IChat/21. App Users Screen Cells/21. урок/IChat/users.json"; sourceTree = "<group>"; };
 		1147A8992503FFA200F9D0A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1147A89C2504329600F9D0A0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		1147A89E250454D100F9D0A0 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		1147A8A02504575000F9D0A0 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		1148992824FCD54600E21958 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = waitingChats.json; path = ../../../../../waitingChats.json; sourceTree = "<group>"; };
 		1148992924FCD54600E21958 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = activeChats.json; path = ../../../../../activeChats.json; sourceTree = "<group>"; };
 		1148992C24FCD66000E21958 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -165,6 +169,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		1147A8A2250461BD00F9D0A0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1147A89E250454D100F9D0A0 /* Validators.swift */,
+				1147A8A02504575000F9D0A0 /* AuthError.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		11507A2D250146C60008EBD8 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +258,7 @@
 				1152B84424FAB39200735DE4 /* Controllers */,
 				117BDC9724FEFA8200FA9102 /* Protocols */,
 				1142563B24F1C8EB00D64745 /* Extensions */,
+				1147A8A2250461BD00F9D0A0 /* Helpers */,
 				11EAAD2D24EEEC4100BA3690 /* Assets.xcassets */,
 				11EAAD2F24EEEC4100BA3690 /* LaunchScreen.storyboard */,
 				11EAAD3224EEEC4100BA3690 /* Info.plist */,
@@ -406,6 +420,7 @@
 				11507A2F250154530008EBD8 /* UserCell.swift in Sources */,
 				11507A312501568C0008EBD8 /* UIViewController + Extension.swift in Sources */,
 				117BDC9B24FEFAD100FA9102 /* SelfConfiguringCell.swift in Sources */,
+				1147A89F250454D100F9D0A0 /* Validators.swift in Sources */,
 				117BDC9624FEF6B100FA9102 /* WaitingChatCell.swift in Sources */,
 				1147A89D2504329600F9D0A0 /* AuthService.swift in Sources */,
 				1146660A24F18C9A00281B40 /* UIImageView + Extension.swift in Sources */,
@@ -413,6 +428,7 @@
 				11EAAD2724EEEC4100BA3690 /* SceneDelegate.swift in Sources */,
 				1144BFAF24F3F11500E8AD97 /* LoginViewController.swift in Sources */,
 				1146660224F17CA100281B40 /* UIButton + Extension.swift in Sources */,
+				1147A8A12504575000F9D0A0 /* AuthError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
