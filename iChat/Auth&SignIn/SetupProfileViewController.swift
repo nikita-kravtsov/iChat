@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SetupProfileViewController: UIViewController {
     override func viewDidLoad() {
@@ -14,6 +15,36 @@ class SetupProfileViewController: UIViewController {
         
         view.backgroundColor = .white
         setupConstraints()
+        
+        goToChatsButton.addTarget(self, action: #selector(goToChatsButtonTapped), for: .touchUpInside)
+    }
+    
+    private var currentUser: User
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func goToChatsButtonTapped() {
+        FirestoreService.shared.saveProfileWith(id: currentUser.uid,
+                                                email: currentUser.email!,
+                                                userName: fullNameTextField.text,
+                                                avatarImageString: "nil",
+                                                description: aboutMeTextField.text,
+                                                sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { (result) in
+                                                    switch result {
+                                                        
+                                                    case .success(let mUser):
+                                                        self.showAlert(withTitle: "Ваш профиль установлен", andMessage: "Приятного общения!")
+                                                        print(mUser)
+                                                    case .failure(let error):
+                                                        self.showAlert(withTitle: "Ошибка при установки профиля!", andMessage: error.localizedDescription)
+                                                    }
+        }
+        
     }
     
     let setUpProfileLabel = UILabel(text: "Set up Profile!", font: .avenir26())
@@ -76,7 +107,7 @@ struct SetupProfileVCProvider: PreviewProvider {
     
     struct ContainerView: UIViewControllerRepresentable {
         
-        let setupProfileVC = SetupProfileViewController()
+        let setupProfileVC = SetupProfileViewController(currentUser: Auth.auth().currentUser!)
         
         func makeUIViewController(context: UIViewControllerRepresentableContext<SetupProfileVCProvider.ContainerView>) -> SetupProfileViewController {
             return setupProfileVC

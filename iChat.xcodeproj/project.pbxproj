@@ -24,6 +24,8 @@
 		1146660824F18B0900281B40 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660724F18B0900281B40 /* UILabel + Extension.swift */; };
 		1146660A24F18C9A00281B40 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660924F18C9A00281B40 /* UIImageView + Extension.swift */; };
 		114706A725068B8500816487 /* AuthNavigatingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114706A625068B8500816487 /* AuthNavigatingDelegate.swift */; };
+		114706A92506D22C00816487 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114706A82506D22C00816487 /* FirestoreService.swift */; };
+		114706AB2506D6AD00816487 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114706AA2506D6AD00816487 /* UserError.swift */; };
 		11470BBB2500568D00DA7FBD /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11470BBA2500568D00DA7FBD /* ChatModel.swift */; };
 		11470BBD2500569C00DA7FBD /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11470BBC2500569C00DA7FBD /* UserModel.swift */; };
 		11470BBF25006B9400DA7FBD /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 11470BBE25006B9400DA7FBD /* users.json */; };
@@ -71,6 +73,8 @@
 		1146660724F18B0900281B40 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		1146660924F18C9A00281B40 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		114706A625068B8500816487 /* AuthNavigatingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigatingDelegate.swift; sourceTree = "<group>"; };
+		114706A82506D22C00816487 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		114706AA2506D6AD00816487 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		11470BBA2500568D00DA7FBD /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		11470BBC2500569C00DA7FBD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		11470BBE25006B9400DA7FBD /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = users.json; path = "../../../../../../[SwiftBook] Программирование на Swift/28. Курс По Мессенджеру IChat/21. App Users Screen Cells/21. урок/IChat/users.json"; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				1147A89C2504329600F9D0A0 /* AuthService.swift */,
+				114706A82506D22C00816487 /* FirestoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			children = (
 				1147A89E250454D100F9D0A0 /* Validators.swift */,
 				1147A8A02504575000F9D0A0 /* AuthError.swift */,
+				114706AA2506D6AD00816487 /* UserError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -398,7 +404,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1152B83F24FAAC4700735DE4 /* MainTabBarController.swift in Sources */,
+				114706A92506D22C00816487 /* FirestoreService.swift in Sources */,
 				1152B83C24FAA1BC00735DE4 /* ListViewController.swift in Sources */,
+				114706AB2506D6AD00816487 /* UserError.swift in Sources */,
 				1144DA9B2502D24200982ECB /* ChatRequestViewController.swift in Sources */,
 				117BDC9D24FF067A00FA9102 /* SectionHeader.swift in Sources */,
 				117BDC9424FEEB9900FA9102 /* GradientView.swift in Sources */,
