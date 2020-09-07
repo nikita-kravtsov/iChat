@@ -23,6 +23,7 @@
 		1146660624F187ED00281B40 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660524F187ED00281B40 /* UIColor + Extension.swift */; };
 		1146660824F18B0900281B40 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660724F18B0900281B40 /* UILabel + Extension.swift */; };
 		1146660A24F18C9A00281B40 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146660924F18C9A00281B40 /* UIImageView + Extension.swift */; };
+		114706A725068B8500816487 /* AuthNavigatingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114706A625068B8500816487 /* AuthNavigatingDelegate.swift */; };
 		11470BBB2500568D00DA7FBD /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11470BBA2500568D00DA7FBD /* ChatModel.swift */; };
 		11470BBD2500569C00DA7FBD /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11470BBC2500569C00DA7FBD /* UserModel.swift */; };
 		11470BBF25006B9400DA7FBD /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 11470BBE25006B9400DA7FBD /* users.json */; };
@@ -69,6 +70,7 @@
 		1146660524F187ED00281B40 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		1146660724F18B0900281B40 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		1146660924F18C9A00281B40 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
+		114706A625068B8500816487 /* AuthNavigatingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigatingDelegate.swift; sourceTree = "<group>"; };
 		11470BBA2500568D00DA7FBD /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		11470BBC2500569C00DA7FBD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		11470BBE25006B9400DA7FBD /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = users.json; path = "../../../../../../[SwiftBook] Программирование на Swift/28. Курс По Мессенджеру IChat/21. App Users Screen Cells/21. урок/IChat/users.json"; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				117BDC9A24FEFAD100FA9102 /* SelfConfiguringCell.swift */,
+				114706A625068B8500816487 /* AuthNavigatingDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				1144C51624F2911600D10785 /* SignUpViewController.swift in Sources */,
 				1146660424F182A900281B40 /* UIFont + Extension.swift in Sources */,
 				117BDC9224FEB4BD00FA9102 /* ActiveChatCell.swift in Sources */,
+				114706A725068B8500816487 /* AuthNavigatingDelegate.swift in Sources */,
 				1142563D24F1D14F00D64745 /* ButtomView.swift in Sources */,
 				1152B84324FAACCC00735DE4 /* PeopleViewController.swift in Sources */,
 				11EAAD2924EEEC4100BA3690 /* AuthViewController.swift in Sources */,

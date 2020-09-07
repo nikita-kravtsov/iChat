@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
         setupConstraints()
         
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
     @objc private func signUpButtonTapped() {
@@ -30,6 +31,15 @@ class SignUpViewController: UIViewController {
             case .failure(let error):
                 self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
             }
+        }
+    }
+    
+    weak var delegate: AuthNavigatingDelegate?
+    
+    @objc private func loginButtonTapped() {
+        print(#function)
+        dismiss(animated: true) {
+            self.delegate?.toLoginVC()
         }
     }
     

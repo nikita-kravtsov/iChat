@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
         setupConstraints()
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
     
     @objc private func loginButtonTapped() {
@@ -33,6 +34,15 @@ class LoginViewController: UIViewController {
         }
     }
     
+    weak var delegate: AuthNavigatingDelegate?
+    
+    @objc private func signUpButtonTapped() {
+        print(#function)
+        dismiss(animated: true) {
+            self.delegate?.toSignUpVC()
+        }
+    }
+
     let welcomeBackLabel = UILabel(text: "Welcom back!", font: .avenir26())
     
     let loginWith = UILabel(text: "Login with")
@@ -87,9 +97,9 @@ extension LoginViewController {
         ])
         
         NSLayoutConstraint.activate([
-        signUpStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
-        signUpStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-        signUpStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            signUpStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
+            signUpStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            signUpStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
     }
 }
