@@ -27,7 +27,9 @@ class LoginViewController: UIViewController {
                 
             case .success(let user):
                 print(user)
-                self.showAlert(withTitle: "Вы успешно", andMessage: "авторизованны!")
+                self.showAlert(withTitle: "Вы успешно", andMessage: "авторизованны!") {
+                    self.present(MainTabBarController(), animated: true)
+                }
             case .failure(let error):
                 self.showAlert(withTitle: "Ошибка при авторизации!", andMessage: error.localizedDescription)
             }

@@ -26,7 +26,9 @@ class SignUpViewController: UIViewController {
             switch result {
                 
             case .success(let user):
-                self.showAlert(withTitle: "Вы успешно", andMessage: "Зарегистрировались!")
+                self.showAlert(withTitle: "Вы успешно", andMessage: "зарегистрировались!") {
+                    self.present(SetupProfileViewController(), animated: true)
+                }
                 print(user)
             case .failure(let error):
                 self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
@@ -100,11 +102,13 @@ extension SignUpViewController {
 
 extension UIViewController {
     
-    func showAlert(withTitle title: String, andMessage message: String) {
+    func showAlert(withTitle title: String, andMessage message: String, completion: @escaping () -> Void = {}) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            completion()
+        }
+
         alert.addAction(okAction)
         present(alert, animated: true)
     }
