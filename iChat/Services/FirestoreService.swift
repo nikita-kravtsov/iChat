@@ -20,7 +20,7 @@ class FirestoreService {
     }
     
     func saveProfileWith(id: String, email: String, userName: String?, avatarImageString: String?, description: String? , sex: String?, completion: @escaping (Result<MUser, Error>) -> Void) {
-    
+        
         guard Validators.isFilled(userName: userName, description: description, sex: sex) else {
             completion(.failure(UsersError.notFilled))
             return
@@ -37,6 +37,23 @@ class FirestoreService {
                 completion(.failure(error))
             } else {
                 completion(.success(mUser))
+            }
+        }
+    }
+    
+    func getUserData(user: User, completion: @escaping (Result<MUser, Error>) -> Void) {
+        
+        let docUserRef = usersRef.document(user.uid)
+        
+        docUserRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                guard let mUser = MUser(document: document) else {
+                    completion(.failure(UsersError.cannotUnwrapToMUser))
+                    return
+                }
+                completion(.success(mUser))
+            } else {
+                completion(.failure(UsersError.cannotGetUserInfo))
             }
         }
     }

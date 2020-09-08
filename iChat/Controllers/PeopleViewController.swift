@@ -18,8 +18,8 @@ class PeopleViewController: UIViewController {
         reloadData(with: nil)
     }
     
-    let users = Bundle.main.decode([MUser].self, from: "users.json")
-    
+//    let users = Bundle.main.decode([MUser].self, from: "users.json")
+    let users: [MUser] = []
     enum Section: Int, CaseIterable {
         case users
         func description(usersCount: Int) -> String {
