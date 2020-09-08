@@ -46,6 +46,7 @@
 		11CCAFFB2507DD4D00F36AA3 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 11CCAFF82507DD4D00F36AA3 /* waitingChats.json */; };
 		11CCAFFC2507DD4D00F36AA3 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 11CCAFF92507DD4D00F36AA3 /* activeChats.json */; };
 		11CCAFFD2507DD4D00F36AA3 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 11CCAFFA2507DD4D00F36AA3 /* users.json */; };
+		11CCAFFF2508442400F36AA3 /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCAFFE2508442400F36AA3 /* UIApplication + Extension.swift */; };
 		11EAAD2524EEEC4100BA3690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EAAD2424EEEC4100BA3690 /* AppDelegate.swift */; };
 		11EAAD2724EEEC4100BA3690 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EAAD2624EEEC4100BA3690 /* SceneDelegate.swift */; };
 		11EAAD2924EEEC4100BA3690 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EAAD2824EEEC4100BA3690 /* AuthViewController.swift */; };
@@ -95,6 +96,7 @@
 		11CCAFF82507DD4D00F36AA3 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = waitingChats.json; path = "../../../../../../[SwiftBook] Программирование на Swift/28. Курс По Мессенджеру IChat/34. UIViewController Init Improvement/34. урок/IChat/waitingChats.json"; sourceTree = "<group>"; };
 		11CCAFF92507DD4D00F36AA3 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = activeChats.json; path = "../../../../../../[SwiftBook] Программирование на Swift/28. Курс По Мессенджеру IChat/34. UIViewController Init Improvement/34. урок/IChat/activeChats.json"; sourceTree = "<group>"; };
 		11CCAFFA2507DD4D00F36AA3 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = users.json; path = "../../../../../../[SwiftBook] Программирование на Swift/28. Курс По Мессенджеру IChat/34. UIViewController Init Improvement/34. урок/IChat/users.json"; sourceTree = "<group>"; };
+		11CCAFFE2508442400F36AA3 /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
 		11EAAD2124EEEC4100BA3690 /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EAAD2424EEEC4100BA3690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11EAAD2624EEEC4100BA3690 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				11CCAFF92507DD4D00F36AA3 /* activeChats.json */,
 				11CCAFFA2507DD4D00F36AA3 /* users.json */,
 				11CCAFF82507DD4D00F36AA3 /* waitingChats.json */,
+				11CCAFFE2508442400F36AA3 /* UIApplication + Extension.swift */,
 				11507A302501568C0008EBD8 /* UIViewController + Extension.swift */,
 				1146660124F17CA100281B40 /* UIButton + Extension.swift */,
 				1146660324F182A900281B40 /* UIFont + Extension.swift */,
@@ -297,6 +300,7 @@
 				11EAAD1E24EEEC4100BA3690 /* Frameworks */,
 				11EAAD1F24EEEC4100BA3690 /* Resources */,
 				D601DEA7414FFDDF707D42D0 /* [CP] Embed Pods Frameworks */,
+				B9CA90AFED27EA9CC4811BBA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,6 +383,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B9CA90AFED27EA9CC4811BBA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iChat/Pods-iChat-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iChat/Pods-iChat-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iChat/Pods-iChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D601DEA7414FFDDF707D42D0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,6 +455,7 @@
 				117BDC9B24FEFAD100FA9102 /* SelfConfiguringCell.swift in Sources */,
 				1147A89F250454D100F9D0A0 /* Validators.swift in Sources */,
 				117BDC9624FEF6B100FA9102 /* WaitingChatCell.swift in Sources */,
+				11CCAFFF2508442400F36AA3 /* UIApplication + Extension.swift in Sources */,
 				1147A89D2504329600F9D0A0 /* AuthService.swift in Sources */,
 				1146660A24F18C9A00281B40 /* UIImageView + Extension.swift in Sources */,
 				1146660624F187ED00281B40 /* UIColor + Extension.swift in Sources */,
