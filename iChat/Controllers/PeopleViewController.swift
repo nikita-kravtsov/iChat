@@ -20,6 +20,17 @@ class PeopleViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(signOut))
     }
+    
+    private let currentUser: MUser
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.userName
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     @objc private func signOut() {
         let alert = UIAlertController(title: "Подтвердите свое действие", message: "Вы действительно хотите выйти из аккаунта?", preferredStyle: .alert)
         
@@ -38,7 +49,7 @@ class PeopleViewController: UIViewController {
         present(alert, animated: true)
     }
     
-//    let users = Bundle.main.decode([MUser].self, from: "users.json")
+    //    let users = Bundle.main.decode([MUser].self, from: "users.json")
     let users: [MUser] = []
     enum Section: Int, CaseIterable {
         case users

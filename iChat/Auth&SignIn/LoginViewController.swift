@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class LoginViewController: UIViewController {
     override func viewDidLoad() {
@@ -28,7 +29,20 @@ class LoginViewController: UIViewController {
             case .success(let user):
                 print(user)
                 self.showAlert(withTitle: "Вы успешно", andMessage: "авторизованны!") {
-                    self.present(MainTabBarController(), animated: true)
+                    FirestoreService.shared.getUserData(user: user) { (result) in
+                        switch result {
+                            
+                        case .success(let mUser):
+                            let mainTabBarController = MainTabBarController(currentUser: mUser)
+                            mainTabBarController.modalPresentationStyle = .fullScreen
+                            mainTabBarController.title = mUser.userName
+                            self.present(mainTabBarController, animated: true)
+                            print(mUser)
+                        case .failure(let error):
+                            self.present(SetupProfileViewController(currentUser: user), animated: true)
+                            print(error)
+                        }
+                    }
                 }
             case .failure(let error):
                 self.showAlert(withTitle: "Ошибка при авторизации!", andMessage: error.localizedDescription)

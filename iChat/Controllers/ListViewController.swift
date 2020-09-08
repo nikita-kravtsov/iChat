@@ -19,6 +19,16 @@ class ListViewController: UIViewController {
         reloadData()
     }
     
+    private let currentUser: MUser
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        title = currentUser.userName
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     let waitingChats = Bundle.main.decode([MChat].self, from: "waitingChats.json")
     let activeChats = Bundle.main.decode([MChat].self, from: "activeChats.json")
     
@@ -84,7 +94,7 @@ extension ListViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 20
         layout.configuration = config
-    
+        
         return layout
     }
     

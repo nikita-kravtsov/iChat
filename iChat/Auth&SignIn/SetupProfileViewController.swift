@@ -29,20 +29,26 @@ class SetupProfileViewController: UIViewController {
     }
     
     @objc func goToChatsButtonTapped() {
-        FirestoreService.shared.saveProfileWith(id: currentUser.uid,
-                                                email: currentUser.email!,
-                                                userName: fullNameTextField.text,
-                                                avatarImageString: "nil",
-                                                description: aboutMeTextField.text,
-                                                sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { (result) in
-                                                    switch result {
-                                                        
-                                                    case .success(let mUser):
-                                                        self.showAlert(withTitle: "Ваш профиль установлен", andMessage: "Приятного общения!")
-                                                        print(mUser)
-                                                    case .failure(let error):
-                                                        self.showAlert(withTitle: "Ошибка при установки профиля!", andMessage: error.localizedDescription)
-                                                    }
+        FirestoreService.shared.saveProfileWith(
+            id: currentUser.uid,
+            email: currentUser.email!,
+            userName: fullNameTextField.text,
+            avatarImageString: "nil",
+            description: aboutMeTextField.text,
+            sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { (result) in
+                switch result {
+                    
+                case .success(let mUser):
+                    self.showAlert(withTitle: "Ваш профиль установлен", andMessage: "Приятного общения!", completion: {
+                        let mainTabBarController = MainTabBarController(currentUser: mUser)
+                        mainTabBarController.modalPresentationStyle = .fullScreen
+                        mainTabBarController.title = mUser.userName
+                        self.present(mainTabBarController, animated: true)
+                    })
+                    print(mUser)
+                case .failure(let error):
+                    self.showAlert(withTitle: "Ошибка при установки профиля!", andMessage: error.localizedDescription)
+                }
         }
         
     }
@@ -79,7 +85,7 @@ extension SetupProfileViewController {
         view.addSubview(setUpProfileLabel)
         view.addSubview(fullImageView)
         view.addSubview(stackView)
-    
+        
         NSLayoutConstraint.activate([
             setUpProfileLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
             setUpProfileLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -91,10 +97,10 @@ extension SetupProfileViewController {
         ])
         
         NSLayoutConstraint.activate([
-                   stackView.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 40),
-                   stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-                   stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-               ])
+            stackView.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 40),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+        ])
     }
 }
 
