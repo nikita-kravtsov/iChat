@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class PeopleViewController: UIViewController {
     override func viewDidLoad() {
@@ -16,6 +17,25 @@ class PeopleViewController: UIViewController {
         setupCollectionView()
         createDiffableDataSource()
         reloadData(with: nil)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(signOut))
+    }
+    @objc private func signOut() {
+        let alert = UIAlertController(title: "Подтвердите свое действие", message: "Вы действительно хотите выйти из аккаунта?", preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "Да", style: .destructive) { (_) in
+            do {
+                try Auth.auth().signOut()
+                UIApplication.shared.keyWindow?.rootViewController = AuthViewController()
+            } catch {
+                print("Error sign out \(error.localizedDescription)")
+            }
+        }
+        let noAction = UIAlertAction(title: "Нет", style: .cancel, handler: nil)
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        present(alert, animated: true)
     }
     
 //    let users = Bundle.main.decode([MUser].self, from: "users.json")
