@@ -28,6 +28,8 @@
 		114706AB2506D6AD00816487 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114706AA2506D6AD00816487 /* UserError.swift */; };
 		11470BBB2500568D00DA7FBD /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11470BBA2500568D00DA7FBD /* ChatModel.swift */; };
 		11470BBD2500569C00DA7FBD /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11470BBC2500569C00DA7FBD /* UserModel.swift */; };
+		11473A2F25095B6E008A9388 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11473A2E25095B6E008A9388 /* StorageService.swift */; };
+		11473A3125095F30008A9388 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11473A3025095F30008A9388 /* UIImage + Extension.swift */; };
 		1147A89A2503FFA200F9D0A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1147A8992503FFA200F9D0A0 /* GoogleService-Info.plist */; };
 		1147A89D2504329600F9D0A0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147A89C2504329600F9D0A0 /* AuthService.swift */; };
 		1147A89F250454D100F9D0A0 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147A89E250454D100F9D0A0 /* Validators.swift */; };
@@ -78,6 +80,8 @@
 		114706AA2506D6AD00816487 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		11470BBA2500568D00DA7FBD /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		11470BBC2500569C00DA7FBD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		11473A2E25095B6E008A9388 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		11473A3025095F30008A9388 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		1147A8992503FFA200F9D0A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1147A89C2504329600F9D0A0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		1147A89E250454D100F9D0A0 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				1146660924F18C9A00281B40 /* UIImageView + Extension.swift */,
 				1142563E24F1DD0100D64745 /* UIStackView + Extension.swift */,
 				1144BFB624F46A9700E8AD97 /* SegmentedControl + Extension.swift */,
+				11473A3025095F30008A9388 /* UIImage + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 			children = (
 				1147A89C2504329600F9D0A0 /* AuthService.swift */,
 				114706A82506D22C00816487 /* FirestoreService.swift */,
+				11473A2E25095B6E008A9388 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -429,6 +435,7 @@
 				1152B83C24FAA1BC00735DE4 /* ListViewController.swift in Sources */,
 				114706AB2506D6AD00816487 /* UserError.swift in Sources */,
 				1144DA9B2502D24200982ECB /* ChatRequestViewController.swift in Sources */,
+				11473A2F25095B6E008A9388 /* StorageService.swift in Sources */,
 				117BDC9D24FF067A00FA9102 /* SectionHeader.swift in Sources */,
 				117BDC9424FEEB9900FA9102 /* GradientView.swift in Sources */,
 				1144C51624F2911600D10785 /* SignUpViewController.swift in Sources */,
@@ -455,6 +462,7 @@
 				117BDC9B24FEFAD100FA9102 /* SelfConfiguringCell.swift in Sources */,
 				1147A89F250454D100F9D0A0 /* Validators.swift in Sources */,
 				117BDC9624FEF6B100FA9102 /* WaitingChatCell.swift in Sources */,
+				11473A3125095F30008A9388 /* UIImage + Extension.swift in Sources */,
 				11CCAFFF2508442400F36AA3 /* UIApplication + Extension.swift in Sources */,
 				1147A89D2504329600F9D0A0 /* AuthService.swift in Sources */,
 				1146660A24F18C9A00281B40 /* UIImageView + Extension.swift in Sources */,

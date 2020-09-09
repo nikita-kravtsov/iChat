@@ -31,13 +31,13 @@ class SetupProfileViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+        
     @objc func goToChatsButtonTapped() {
         FirestoreService.shared.saveProfileWith(
             id: currentUser.uid,
             email: currentUser.email!,
             userName: fullNameTextField.text,
-            avatarImageString: "nil",
+            avatarImage: fullImageView.circleImageView.image,
             description: aboutMeTextField.text,
             sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { (result) in
                 switch result {
