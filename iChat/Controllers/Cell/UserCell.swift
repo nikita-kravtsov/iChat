@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class UserCell: UICollectionViewCell, SelfConfiguringCell {
     
@@ -37,10 +38,15 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
     let userNameLabel = UILabel(text: "Nikita", font: .laoSangamMN20())
     let containerUserView = UIView()
     
+    override func prepareForReuse() {
+        userImageView.image = nil
+    }
+    
     func configure<U>(with value: U) where U : Hashable {
         guard let user: MUser = value as? MUser else { return }
         
-        userImageView.image = UIImage(named: user.avatarStringURL)
+        guard let url = URL(string: user.avatarStringURL) else { return }
+        userImageView.sd_setImage(with: url, completed: nil)
         userNameLabel.text = user.userName
     }
     
@@ -75,8 +81,6 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
             userNameLabel.bottomAnchor.constraint(equalTo: containerUserView.bottomAnchor)
         ])
     }
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
