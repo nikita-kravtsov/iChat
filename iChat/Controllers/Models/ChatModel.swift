@@ -9,16 +9,24 @@
 import UIKit
 
 struct MChat: Hashable, Decodable {
-    var userName: String
-    var userImageString: String
-    var lastMessage: String
-    var id: Int
+    var friendUserName: String
+    var friendImageString: String
+    var friendLastMessage: String
+    var friendId: String
+    
+    var representation: [String: Any] {
+        var rep = ["friendUserName": friendUserName]
+        rep["friendImageString"] = friendImageString
+        rep["friendLastMessage"] = friendLastMessage
+        rep["friendId"] = friendId
+        return rep
+    }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(friendId)
     }
     
     static func == (lhs: MChat, rhs: MChat) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.friendId == rhs.friendId
     }
 }

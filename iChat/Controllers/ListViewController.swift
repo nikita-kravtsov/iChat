@@ -29,8 +29,8 @@ class ListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let waitingChats = Bundle.main.decode([MChat].self, from: "waitingChats.json")
-    let activeChats = Bundle.main.decode([MChat].self, from: "activeChats.json")
+    let waitingChats: [MChat] = []
+    let activeChats: [MChat] = []
     
     enum Section: Int, CaseIterable {
         case waitingChats, activeChats

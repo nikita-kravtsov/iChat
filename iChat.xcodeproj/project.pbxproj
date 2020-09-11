@@ -41,6 +41,7 @@
 		1152B83C24FAA1BC00735DE4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B83B24FAA1BC00735DE4 /* ListViewController.swift */; };
 		1152B83F24FAAC4700735DE4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */; };
 		1152B84324FAACCC00735DE4 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152B84224FAACCC00735DE4 /* PeopleViewController.swift */; };
+		116ED01E250BDBD900D45E74 /* MMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116ED01D250BDBD900D45E74 /* MMessage.swift */; };
 		117BDC9224FEB4BD00FA9102 /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BDC9124FEB4BD00FA9102 /* ActiveChatCell.swift */; };
 		117BDC9424FEEB9900FA9102 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BDC9324FEEB9900FA9102 /* GradientView.swift */; };
 		117BDC9624FEF6B100FA9102 /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BDC9524FEF6B100FA9102 /* WaitingChatCell.swift */; };
@@ -94,6 +95,7 @@
 		1152B83B24FAA1BC00735DE4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1152B83E24FAAC4700735DE4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1152B84224FAACCC00735DE4 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		116ED01D250BDBD900D45E74 /* MMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMessage.swift; sourceTree = "<group>"; };
 		117BDC9124FEB4BD00FA9102 /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
 		117BDC9324FEEB9900FA9102 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		117BDC9524FEF6B100FA9102 /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				11470BBA2500568D00DA7FBD /* ChatModel.swift */,
+				116ED01D250BDBD900D45E74 /* MMessage.swift */,
 				11470BBC2500569C00DA7FBD /* UserModel.swift */,
 			);
 			path = Models;
@@ -461,6 +464,7 @@
 				11EAAD2524EEEC4100BA3690 /* AppDelegate.swift in Sources */,
 				1146660824F18B0900281B40 /* UILabel + Extension.swift in Sources */,
 				1144BFB724F46A9700E8AD97 /* SegmentedControl + Extension.swift in Sources */,
+				116ED01E250BDBD900D45E74 /* MMessage.swift in Sources */,
 				11507A2F250154530008EBD8 /* UserCell.swift in Sources */,
 				11507A312501568C0008EBD8 /* UIViewController + Extension.swift in Sources */,
 				117BDC9B24FEFAD100FA9102 /* SelfConfiguringCell.swift in Sources */,

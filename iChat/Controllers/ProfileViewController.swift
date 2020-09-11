@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupConstraints()
+    }
+    
+    private let user: MUser
+    init(user: MUser) {
+        self.user = user
+        self.nameLabel.text = user.userName
+        self.aboutMeLabel.text = user.description
+        self.profileImage.sd_setImage(with: URL(string: user.avatarStringURL), completed: nil)
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     let profileImage = UIImageView(image: #imageLiteral(resourceName: "human7"), contentMode: .scaleAspectFill)
@@ -22,7 +35,19 @@ class ProfileViewController: UIViewController {
     let containerView = UIView()
     
     @objc func sendMessage() {
-        print(#function)
+        guard let message = textField.text, message != "" else { return }
+        
+        self.dismiss(animated: true) {
+            FirestoreService.shared.createWaitingChat(message: message, receiver: self.user) { (result) in
+                switch result {
+                    
+                case .success():
+                    UIApplication.getTopViewController()?.showAlert(withTitle: "Ваше сообщение", andMessage: "отправлено другу \(self.user.userName)!")
+                case .failure(_):
+                    UIApplication.getTopViewController()?.showAlert(withTitle: "Ошибка!", andMessage: "Сообщение не отправлено")
+                }
+            }
+        }
     }
 }
 
@@ -91,23 +116,4 @@ extension ProfileViewController {
 }
 
 
-//MARK: - SwiftUI Canvas
-import SwiftUI
-struct ProfileVCProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let profileVC = ProfileViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<ProfileVCProvider.ContainerView>) -> ProfileViewController {
-            return profileVC
-        }
-        
-        func updateUIViewController(_ uiViewController: ProfileVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ProfileVCProvider.ContainerView>) {
-            
-        }
-    }
-}
+
