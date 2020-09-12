@@ -33,6 +33,16 @@ class ListViewController: UIViewController {
                 self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
             }
         })
+        activeChatsListener = ListenerService.shared.activeChatsObserve(chats: activeChats, completion: { (result) in
+            switch result {
+                
+            case .success(let chats):
+                self.activeChats = chats
+                self.reloadData()
+            case .failure(let error):
+                self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
+            }
+        })
     }
     
     private let currentUser: MUser
@@ -46,12 +56,14 @@ class ListViewController: UIViewController {
     }
 
     var waitingChatsListener: ListenerRegistration?
+    var activeChatsListener: ListenerRegistration?
     deinit {
         waitingChatsListener?.remove()
+        activeChatsListener?.remove()
     }
     
     var waitingChats: [MChat] = []
-    let activeChats: [MChat] = []
+    var activeChats: [MChat] = []
     
     enum Section: Int, CaseIterable {
         case waitingChats, activeChats
@@ -240,7 +252,15 @@ extension ListViewController: WaitingChatsNavigation {
     }
     
     func chatToActive(chat: MChat) {
-        print(#function)
+        FirestoreService.shared.changeToActive(chat: chat) { (result) in
+            switch result {
+                
+            case .success():
+                self.showAlert(withTitle: "Операция выполнена!", andMessage: "Приятного общения с \(chat.friendUserName)")
+            case .failure(let error):
+                self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
+            }
+        }
     }
 }
 //MARK: - SwiftUI Canvas
