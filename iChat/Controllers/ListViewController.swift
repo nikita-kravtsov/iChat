@@ -25,6 +25,10 @@ class ListViewController: UIViewController {
             case .success(let chats):
                 self.waitingChats = chats
                 self.reloadData()
+                if self.waitingChats != [], self.waitingChats.count <= chats.count {
+                    let chatRequestVC = ChatRequestViewController(chat: chats.last!)
+                    self.present(chatRequestVC, animated: true)
+                }
             case .failure(let error):
                 self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
             }
@@ -89,6 +93,8 @@ class ListViewController: UIViewController {
         
         collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reuseId)
         collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuseId)
+        
+        collectionView.delegate = self
     }
 }
 
@@ -194,8 +200,6 @@ extension ListViewController {
     }
 }
 
-
-
 // MARK: - UISearchBarDelegate
 extension ListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -203,6 +207,22 @@ extension ListViewController: UISearchBarDelegate {
     }
 }
 
+//MARK: - UICollectionViewDelegate
+extension ListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let chat = self.dataSource?.itemIdentifier(for: indexPath) else { return }
+        guard let section = Section(rawValue: indexPath.section) else { return }
+        
+        switch section {
+            
+        case .waitingChats:
+            let chatRequestVC = ChatRequestViewController(chat: chat)
+            self.present(chatRequestVC, animated: true)
+        case .activeChats:
+            print(indexPath)
+        }
+    }
+}
 //MARK: - SwiftUI Canvas
 import SwiftUI
 struct ListVCProvider: PreviewProvider {
