@@ -14,6 +14,21 @@ class ChatRequestViewController: UIViewController {
         super.viewDidLoad()
     
         setupConstraints()
+        
+        denyButton.addTarget(self, action: #selector(denyButtonTapped), for: .touchUpInside)
+        acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func denyButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.removeWaitingChats(chat: self.chat)
+        }
+    }
+    
+    @objc private func acceptButtonTapped() {
+        dismiss(animated: true) {
+            self.delegate?.chatToActive(chat: self.chat)
+        }
     }
     
     let profileImage = UIImageView(image: #imageLiteral(resourceName: "human7"), contentMode: .scaleAspectFill)
@@ -22,6 +37,8 @@ class ChatRequestViewController: UIViewController {
     let acceptButton = UIButton(title: "ACCEPT", titleColor: .white, backgroundColor: .black, font: .laoSangamMN20(), isShadow: false, cornerRadius: 10)
     let denyButton = UIButton(title: "Deny", titleColor: #colorLiteral(red: 0.8352941176, green: 0.2, blue: 0.2, alpha: 1), backgroundColor: .mainWhite(), font: .laoSangamMN20(), isShadow: false, cornerRadius: 10)
     let containerView = UIView()
+    
+    weak var delegate: WaitingChatsNavigation?
     
     private var chat: MChat!
     init(chat: MChat) {

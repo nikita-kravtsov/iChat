@@ -34,6 +34,7 @@
 		1147A89D2504329600F9D0A0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147A89C2504329600F9D0A0 /* AuthService.swift */; };
 		1147A89F250454D100F9D0A0 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147A89E250454D100F9D0A0 /* Validators.swift */; };
 		1147A8A12504575000F9D0A0 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147A8A02504575000F9D0A0 /* AuthError.swift */; };
+		1147CC19250D2A230025A8AE /* WaitingChatsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1147CC18250D2A230025A8AE /* WaitingChatsNavigation.swift */; };
 		1148992D24FCD66000E21958 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148992C24FCD66000E21958 /* Bundle-Decodable.swift */; };
 		114C5460250A3AE400E1A83D /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C545F250A3AE400E1A83D /* ListenerService.swift */; };
 		11507A2F250154530008EBD8 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11507A2E250154530008EBD8 /* UserCell.swift */; };
@@ -88,6 +89,7 @@
 		1147A89C2504329600F9D0A0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		1147A89E250454D100F9D0A0 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		1147A8A02504575000F9D0A0 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		1147CC18250D2A230025A8AE /* WaitingChatsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatsNavigation.swift; sourceTree = "<group>"; };
 		1148992C24FCD66000E21958 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		114C545F250A3AE400E1A83D /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
 		11507A2E250154530008EBD8 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				117BDC9A24FEFAD100FA9102 /* SelfConfiguringCell.swift */,
 				114706A625068B8500816487 /* AuthNavigatingDelegate.swift */,
+				1147CC18250D2A230025A8AE /* WaitingChatsNavigation.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				11473A2F25095B6E008A9388 /* StorageService.swift in Sources */,
 				117BDC9D24FF067A00FA9102 /* SectionHeader.swift in Sources */,
 				117BDC9424FEEB9900FA9102 /* GradientView.swift in Sources */,
+				1147CC19250D2A230025A8AE /* WaitingChatsNavigation.swift in Sources */,
 				1144C51624F2911600D10785 /* SignUpViewController.swift in Sources */,
 				1146660424F182A900281B40 /* UIFont + Extension.swift in Sources */,
 				117BDC9224FEB4BD00FA9102 /* ActiveChatCell.swift in Sources */,

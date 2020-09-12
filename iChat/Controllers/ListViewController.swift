@@ -27,7 +27,7 @@ class ListViewController: UIViewController {
                 self.reloadData()
                 if self.waitingChats != [], self.waitingChats.count <= chats.count {
                     let chatRequestVC = ChatRequestViewController(chat: chats.last!)
-                    self.present(chatRequestVC, animated: true)
+                    chatRequestVC.delegate = self
                 }
             case .failure(let error):
                 self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
@@ -217,10 +217,30 @@ extension ListViewController: UICollectionViewDelegate {
             
         case .waitingChats:
             let chatRequestVC = ChatRequestViewController(chat: chat)
+            chatRequestVC.delegate = self
             self.present(chatRequestVC, animated: true)
         case .activeChats:
             print(indexPath)
         }
+    }
+}
+
+//MARK: - WaitingChatsNavigation
+extension ListViewController: WaitingChatsNavigation {
+    func removeWaitingChats(chat: MChat) {
+        FirestoreService.shared.deleteWaitingChat(chat: chat) { (result) in
+            switch result {
+                
+            case .success():
+                self.showAlert(withTitle: "Операция выполнена!", andMessage: "Ваш чат с \(chat.friendUserName) был успешно удален")
+            case .failure(let error):
+                self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
+            }
+        }
+    }
+    
+    func chatToActive(chat: MChat) {
+        print(#function)
     }
 }
 //MARK: - SwiftUI Canvas
