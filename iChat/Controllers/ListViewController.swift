@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ListViewController: UIViewController {
     override func viewDidLoad() {
@@ -17,6 +18,17 @@ class ListViewController: UIViewController {
         setupSearchBar()
         createDiffableDataSource()
         reloadData()
+        
+        waitingChatsListener = ListenerService.shared.waitingChatsObserve(chats: waitingChats, completion: { (result) in
+            switch result {
+                
+            case .success(let chats):
+                self.waitingChats = chats
+                self.reloadData()
+            case .failure(let error):
+                self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
+            }
+        })
     }
     
     private let currentUser: MUser
@@ -28,8 +40,13 @@ class ListViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    var waitingChatsListener: ListenerRegistration?
+    deinit {
+        waitingChatsListener?.remove()
+    }
     
-    let waitingChats: [MChat] = []
+    var waitingChats: [MChat] = []
     let activeChats: [MChat] = []
     
     enum Section: Int, CaseIterable {

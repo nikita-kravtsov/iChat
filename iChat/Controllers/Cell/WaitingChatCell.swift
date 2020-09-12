@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WaitingChatCell: UICollectionViewCell, SelfConfiguringCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setupConstraints()
+        
+        self.backgroundColor = .red
         
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
@@ -24,7 +27,7 @@ class WaitingChatCell: UICollectionViewCell, SelfConfiguringCell {
     
     func configure<U>(with value: U) where U : Hashable {
         guard let chat: MChat = value as? MChat else { return }
-//        friendImageView.image = UIImage(named: chat.userImageString)
+        friendImageView.sd_setImage(with: URL(string: chat.friendImageString), completed: nil)
     }
     
     required init?(coder: NSCoder) {

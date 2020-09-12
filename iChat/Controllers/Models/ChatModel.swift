@@ -7,12 +7,34 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct MChat: Hashable, Decodable {
     var friendUserName: String
     var friendImageString: String
     var friendLastMessage: String
     var friendId: String
+    
+    init(friendUserName: String, friendImageString: String, friendLastMessage: String, friendId: String) {
+        self.friendUserName = friendUserName
+        self.friendImageString = friendImageString
+        self.friendLastMessage = friendLastMessage
+        self.friendId = friendId   
+    }
+    
+    init?(document: QueryDocumentSnapshot) {
+        let data = document.data()
+        
+        guard let friendUserName = data["friendUserName"] as? String,
+        let friendImageString = data["friendImageString"] as? String,
+        let friendLastMessage = data["friendLastMessage"] as? String,
+        let friendId = data["friendId"] as? String else { return nil }
+        
+        self.friendUserName = friendUserName
+        self.friendImageString = friendImageString
+        self.friendLastMessage = friendLastMessage
+        self.friendId = friendId
+    }
     
     var representation: [String: Any] {
         var rep = ["friendUserName": friendUserName]
