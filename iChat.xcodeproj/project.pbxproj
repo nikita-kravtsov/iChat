@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1142563D24F1D14F00D64745 /* ButtomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142563C24F1D14F00D64745 /* ButtomView.swift */; };
 		1142563F24F1DD0100D64745 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142563E24F1DD0100D64745 /* UIStackView + Extension.swift */; };
+		11440ACA250E85890098E77B /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11440AC9250E85890098E77B /* ChatsViewController.swift */; };
 		1144BFAF24F3F11500E8AD97 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144BFAE24F3F11500E8AD97 /* LoginViewController.swift */; };
 		1144BFB124F4280F00E8AD97 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144BFB024F4280F00E8AD97 /* SetupProfileViewController.swift */; };
 		1144BFB324F429C800E8AD97 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144BFB224F429C800E8AD97 /* AddPhotoView.swift */; };
@@ -64,6 +65,7 @@
 		106F76DE49E487BD816B6B9D /* Pods-iChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChat.release.xcconfig"; path = "Target Support Files/Pods-iChat/Pods-iChat.release.xcconfig"; sourceTree = "<group>"; };
 		1142563C24F1D14F00D64745 /* ButtomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomView.swift; sourceTree = "<group>"; };
 		1142563E24F1DD0100D64745 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
+		11440AC9250E85890098E77B /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		1144BFAE24F3F11500E8AD97 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1144BFB024F4280F00E8AD97 /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		1144BFB224F429C800E8AD97 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				1152B84224FAACCC00735DE4 /* PeopleViewController.swift */,
 				114531F02501AD3E00EDA6F7 /* ProfileViewController.swift */,
 				1144DA9A2502D24200982ECB /* ChatRequestViewController.swift */,
+				11440AC9250E85890098E77B /* ChatsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				1144DA9B2502D24200982ECB /* ChatRequestViewController.swift in Sources */,
 				114C5460250A3AE400E1A83D /* ListenerService.swift in Sources */,
 				11473A2F25095B6E008A9388 /* StorageService.swift in Sources */,
+				11440ACA250E85890098E77B /* ChatsViewController.swift in Sources */,
 				117BDC9D24FF067A00FA9102 /* SectionHeader.swift in Sources */,
 				117BDC9424FEEB9900FA9102 /* GradientView.swift in Sources */,
 				1147CC19250D2A230025A8AE /* WaitingChatsNavigation.swift in Sources */,
