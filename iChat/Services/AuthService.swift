@@ -63,16 +63,16 @@ class AuthService {
             return
         }
         
-        guard let authentication = user.authentication else { return }
-        
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        
-        Auth.auth().signIn(with: credential) { (result, error) in
-            guard let result = result else {
-                completion(.failure(error!))
-                return
-            }
-            completion(.success(result.user))
-        }
+//        guard let authentication = user.authentication else { return }
+//        
+//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+//        
+//        Auth.auth().signIn(with: credential) { (result, error) in
+//            guard let result = result else {
+//                completion(.failure(error!))
+//                return
+//            }
+//            completion(.success(result.user))
+//        }
     }
 }

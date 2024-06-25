@@ -62,8 +62,8 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func googleButtonTapped() {
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().signIn()
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance().signIn()
     }
 
     let welcomeBackLabel = UILabel(text: "Welcom back!", font: .avenir26())

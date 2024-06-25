@@ -24,7 +24,7 @@ class AuthViewController: UIViewController {
         signUpVC.delegate = self
         loginVC.delegate = self
         
-        GIDSignIn.sharedInstance()?.delegate = self
+//        GIDSignIn.sharedInstance()?.delegate = self
     }
     
     let signUpVC = SignUpViewController()
@@ -37,8 +37,8 @@ class AuthViewController: UIViewController {
         present(loginVC, animated: true, completion: nil)
     }
     @objc private func googleButtonTapped() {
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().signIn()
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance().signIn()
     }
     
     let logoImageView = UIImageView(image: #imageLiteral(resourceName: "Logo"), contentMode: .scaleAspectFit)
@@ -92,33 +92,33 @@ extension AuthViewController {
 }
 
 //MARK: - extension GIDSignInDelegate
-extension AuthViewController: GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        AuthService.shared.googleLogin(user: user, error: error) { (result) in
-            switch result {
-                
-            case .success(let user):
-                FirestoreService.shared.getUserData(user: user) { (result) in
-                    switch result {
-                        
-                    case .success(let mUser):
-                        UIApplication.getTopViewController()?.showAlert(withTitle: "Вы успешно", andMessage: "авторизировались!") {
-                            let mainTabBarController = MainTabBarController(currentUser: mUser)
-                            mainTabBarController.modalPresentationStyle = .fullScreen
-                            UIApplication.getTopViewController()?.present(mainTabBarController, animated: true, completion: nil)
-                        }
-                    case .failure(_):
-                        UIApplication.getTopViewController()?.showAlert(withTitle: "Вы успешно", andMessage: "зарегестрировались!") {
-                            UIApplication.getTopViewController()?.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
-                        }
-                    }
-                }
-            case .failure(let error):
-                self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
-            }
-        }
-    }
-}
+//extension AuthViewController: GIDSignInDelegate {
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//        AuthService.shared.googleLogin(user: user, error: error) { (result) in
+//            switch result {
+//                
+//            case .success(let user):
+//                FirestoreService.shared.getUserData(user: user) { (result) in
+//                    switch result {
+//                        
+//                    case .success(let mUser):
+//                        UIApplication.getTopViewController()?.showAlert(withTitle: "Вы успешно", andMessage: "авторизировались!") {
+//                            let mainTabBarController = MainTabBarController(currentUser: mUser)
+//                            mainTabBarController.modalPresentationStyle = .fullScreen
+//                            UIApplication.getTopViewController()?.present(mainTabBarController, animated: true, completion: nil)
+//                        }
+//                    case .failure(_):
+//                        UIApplication.getTopViewController()?.showAlert(withTitle: "Вы успешно", andMessage: "зарегестрировались!") {
+//                            UIApplication.getTopViewController()?.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+//                        }
+//                    }
+//                }
+//            case .failure(let error):
+//                self.showAlert(withTitle: "Ошибка!", andMessage: error.localizedDescription)
+//            }
+//        }
+//    }
+//}
 
 
 //MARK: - SwiftUI Canvas
