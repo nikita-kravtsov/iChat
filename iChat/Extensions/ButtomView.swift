@@ -27,7 +27,7 @@ class ButtomView: UIView {
         buttom.snp.makeConstraints { make in
             make.top.equalTo(label.snp.bottom).offset(20)
             make.trailing.equalTo(self.snp.trailing)
-            make.leading.equalTo(self.snp.bottom)
+            make.leading.equalTo(self.snp.leading)
             make.height.equalTo(60)
             
         }
