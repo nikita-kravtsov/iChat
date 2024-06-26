@@ -60,32 +60,32 @@ extension ActiveChatCell {
         friendImageView.backgroundColor = .orange
         gradientView.backgroundColor = .black
         
-        NSLayoutConstraint.activate([
-            friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            friendImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            friendImageView.widthAnchor.constraint(equalToConstant: 78),
-            friendImageView.heightAnchor.constraint(equalToConstant: 78)
-        ])
+        friendImageView.snp.makeConstraints { make in
+            make.leading.equalTo(self.snp.leading)
+            make.centerY.equalTo(self.snp.centerY)
+            make.width.equalTo(78)
+            make.height.equalTo(78)
+        }
         
-        NSLayoutConstraint.activate([
-            friendName.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
-            friendName.leadingAnchor.constraint(equalTo: friendImageView.trailingAnchor, constant: 16),
-            friendName.trailingAnchor.constraint(equalTo: gradientView.leadingAnchor, constant: 16)
-        ])
-        
-        NSLayoutConstraint.activate([
-            lastMessage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
-            lastMessage.leadingAnchor.constraint(equalTo: friendImageView.trailingAnchor, constant: 16),
-            lastMessage.trailingAnchor.constraint(equalTo: gradientView.leadingAnchor, constant: 16),
-        ])
-        
-        NSLayoutConstraint.activate([
-            gradientView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            gradientView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            gradientView.widthAnchor.constraint(equalToConstant: 8),
-            gradientView.heightAnchor.constraint(equalToConstant: 78)
-        ])
-    }  
+        friendName.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top).offset(12)
+            make.leading.equalTo(friendImageView.snp.trailing).offset(16)
+            make.trailing.equalTo(gradientView.snp.leading).offset(16)
+        }
+ 
+        lastMessage.snp.makeConstraints { make in
+            make.bottom.equalTo(self.snp.bottom).offset(-12)
+            make.leading.equalTo(friendImageView.snp.trailing).offset(16)
+            make.trailing.equalTo(gradientView.snp.leading).offset(16)
+        }
+ 
+        gradientView.snp.makeConstraints { make in
+            make.trailing.equalTo(self.snp.trailing)
+            make.centerY.equalTo(self.snp.centerY)
+            make.width.equalTo(8)
+            make.height.equalTo(78)
+        }
+    }
 }
 
 // MARK: - SwiftUI

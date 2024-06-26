@@ -41,25 +41,24 @@ class AddPhotoView: UIView {
     }()
     
     private func setupConstraints() {
+        circleImageView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top).offset(0)
+            make.leading.equalTo(self.snp.leading).offset(0)
+            make.height.equalTo(100)
+            make.width.equalTo(100)
+        }
+
+        plusButton.snp.makeConstraints { make in
+            make.leading.equalTo(circleImageView.snp.trailing).offset(16)
+            make.height.equalTo(30)
+            make.width.equalTo(30)
+            make.centerY.equalTo(self.snp.centerY)
+        }
         
-        NSLayoutConstraint.activate([
-            circleImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            circleImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            circleImageView.heightAnchor.constraint(equalToConstant: 100),
-            circleImageView.widthAnchor.constraint(equalToConstant: 100)
-        ])
-        
-        NSLayoutConstraint.activate([
-            plusButton.leadingAnchor.constraint(equalTo: circleImageView.trailingAnchor, constant: 16),
-            plusButton.heightAnchor.constraint(equalToConstant: 30),
-            plusButton.widthAnchor.constraint(equalToConstant: 30),
-            plusButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            self.bottomAnchor.constraint(equalTo: circleImageView.bottomAnchor),
-            self.trailingAnchor.constraint(equalTo: plusButton.trailingAnchor)
-        ])
+        self.snp.makeConstraints { make in
+            make.bottom.equalTo(circleImageView.snp.bottom)
+            make.trailing.equalTo(plusButton.snp.trailing)
+        }
     }
     
     override func layoutSubviews() {

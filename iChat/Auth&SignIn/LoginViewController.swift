@@ -90,7 +90,9 @@ extension LoginViewController {
         let emailStackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField], axis: .vertical, spacing: 0)
         let passwordStackView = UIStackView(arrangedSubviews: [passwordLabel, passwordTextField], axis: .vertical, spacing: 0)
         
-        loginButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        loginButton.snp.makeConstraints { make in
+            make.height.equalTo(60)
+        }
         
         let stackView = UIStackView(arrangedSubviews: [loginWithView,
                                                        orLabel,
@@ -107,23 +109,22 @@ extension LoginViewController {
         welcomeBackLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         signUpStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            welcomeBackLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-            welcomeBackLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: welcomeBackLabel.bottomAnchor, constant: 60),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40)
-        ])
-        
-        NSLayoutConstraint.activate([
-            signUpStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
-            signUpStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            signUpStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-        ])
+        welcomeBackLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top).offset(50)
+            make.centerX.equalTo(view.snp.centerX)
+        }
+ 
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(welcomeBackLabel.snp.bottom).offset(60)
+            make.trailing.equalTo(view.snp.trailing).offset(-40)
+            make.leading.equalTo(view.snp.leading).offset(40)
+        }
+ 
+        signUpStackView.snp.makeConstraints { make in
+            make.top.equalTo(stackView.snp.bottom).offset(60)
+            make.leading.equalTo(view.snp.leading).offset(40)
+            make.trailing.equalTo(view.snp.trailing).offset(-40)
+        }
     }
 }
 

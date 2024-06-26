@@ -71,47 +71,44 @@ extension ProfileViewController {
             button.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
         }
         
-        
-        
         view.addSubview(profileImage)
         view.addSubview(containerView)
         containerView.addSubview(nameLabel)
         containerView.addSubview(aboutMeLabel)
         containerView.addSubview(textField)
         
+        profileImage.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
+            make.leading.equalTo(view.snp.leading)
+            make.trailing.equalTo(view.snp.trailing)
+        }
         
-        NSLayoutConstraint.activate([
-            profileImage.topAnchor.constraint(equalTo: view.topAnchor),
-            profileImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            profileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            profileImage.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+        containerView.snp.makeConstraints { make in
+            make.leading.equalTo(view.snp.leading)
+            make.trailing.equalTo(view.snp.trailing)
+            make.bottom.equalTo(view.snp.bottom)
+            make.height.equalTo(206)
+        }
         
-        NSLayoutConstraint.activate([
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            containerView.heightAnchor.constraint(equalToConstant: 206)
-        ])
-        
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 35),
-            nameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 25),
-            nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -25)
-        ])
-        
-        NSLayoutConstraint.activate([
-            aboutMeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            aboutMeLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 25),
-            aboutMeLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -25)
-        ])
-        
-        NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: aboutMeLabel.bottomAnchor, constant: 8),
-            textField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 25),
-            textField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -25),
-            textField.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(35)
+            make.leading.equalTo(containerView.snp.leading).offset(25)
+            make.top.equalTo(containerView.snp.trailing).offset(-25)
+        }
+
+        aboutMeLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(8)
+            make.leading.equalTo(containerView.snp.leading).offset(25)
+            make.trailing.equalTo(containerView.snp.trailing).offset(-25)
+        }
+ 
+        textField.snp.makeConstraints { make in
+            make.top.equalTo(aboutMeLabel.snp.bottom).offset(8)
+            make.leading.equalTo(containerView.snp.leading).offset(25)
+            make.trailing.equalTo(containerView.snp.trailing).offset(-25)
+            make.height.equalTo(50)
+        }
     }
 }
 

@@ -21,16 +21,16 @@ class SetupProfileViewController: UIViewController {
         fullImageView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
     }
     
-    private var currentUser: User
-    init(currentUser: User) {
-        self.currentUser = currentUser
+    private var currentUser: User?
+    init(currentUser: User? = nil) {
+        self.currentUser = currentUser ?? nil
         super.init(nibName: nil, bundle: nil)
         
-        if let userName = currentUser.displayName {
+        if let userName = currentUser?.displayName {
             fullNameTextField.text = userName
         }
         
-        if let photoURL = currentUser.photoURL {
+        if let photoURL = currentUser?.photoURL {
             fullImageView.circleImageView.sd_setImage(with: photoURL, completed: nil)
         }
     }
@@ -47,8 +47,8 @@ class SetupProfileViewController: UIViewController {
         
     @objc func goToChatsButtonTapped() {
         FirestoreService.shared.saveProfileWith(
-            id: currentUser.uid,
-            email: currentUser.email!,
+            id: currentUser?.uid ?? "",
+            email: currentUser?.email! ?? "",
             userName: fullNameTextField.text,
             avatarImage: fullImageView.circleImageView.image,
             description: aboutMeTextField.text,
@@ -98,26 +98,25 @@ extension SetupProfileViewController {
         setUpProfileLabel.translatesAutoresizingMaskIntoConstraints = false
         fullImageView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(setUpProfileLabel)
         view.addSubview(fullImageView)
         view.addSubview(stackView)
         
-        NSLayoutConstraint.activate([
-            setUpProfileLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-            setUpProfileLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            fullImageView.topAnchor.constraint(equalTo: setUpProfileLabel.bottomAnchor, constant: 40),
-            fullImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: fullImageView.bottomAnchor, constant: 40),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-        ])
+        setUpProfileLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top).offset(160)
+            make.centerX.equalTo(view.snp.centerX)
+        }
+
+        fullImageView.snp.makeConstraints { make in
+            make.top.equalTo(setUpProfileLabel.snp.bottom).offset(40)
+            make.centerX.equalTo(view.snp.centerX)
+        }
+
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(fullImageView.snp.bottom).offset(40)
+            make.leading.equalTo(view.snp.leading).offset(40)
+            make.trailing.equalTo(view.snp.trailing).offset(-40)
+        }
     }
 }
 
@@ -139,7 +138,7 @@ struct SetupProfileVCProvider: PreviewProvider {
     
     struct ContainerView: UIViewControllerRepresentable {
         
-        let setupProfileVC = SetupProfileViewController(currentUser: Auth.auth().currentUser!)
+        let setupProfileVC = SetupProfileViewController()
         
         func makeUIViewController(context: UIViewControllerRepresentableContext<SetupProfileVCProvider.ContainerView>) -> SetupProfileViewController {
             return setupProfileVC

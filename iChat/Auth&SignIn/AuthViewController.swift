@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleSignIn
+import SnapKit
 
 class AuthViewController: UIViewController {
     override func viewDidLoad() {
@@ -78,16 +79,16 @@ extension AuthViewController {
         view.addSubview(stackView)
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        logoImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(160)
+            make.centerX.equalToSuperview()
+        }
         
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 160),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-        ])
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(160)
+            make.leading.equalTo(view.snp.leading).offset(40)
+            make.trailing.equalTo(view.snp.trailing).offset(-40)
+        }
     }
 }
 

@@ -21,12 +21,12 @@ class OneLineTextField: UITextField {
         buttomView.backgroundColor = .textFieldLight()
         buttomView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(buttomView)
-        
-        NSLayoutConstraint.activate([
-            buttomView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            buttomView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            buttomView.trailingAnchor.constraint(equalTo: self.trailingAnchor ),
-            buttomView.heightAnchor.constraint(equalToConstant: 1)
-        ])
+
+        buttomView.snp.makeConstraints { make in
+            make.bottom.equalTo(self.snp.bottom)
+            make.leading.equalTo(self.snp.leading)
+            make.trailing.equalTo(self.snp.trailing)
+            make.height.equalTo(1)
+        }
     }
 }

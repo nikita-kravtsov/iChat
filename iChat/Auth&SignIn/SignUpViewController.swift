@@ -72,31 +72,29 @@ extension SignUpViewController {
         
         let loginStackView = UIStackView(arrangedSubviews: [alreadyOnboard, loginButton], axis: .horizontal, spacing: -1)
         
-        
         welcomLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         loginStackView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(welcomLabel)
         view.addSubview(stackView)
         view.addSubview(loginStackView)
+
+        welcomLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.snp.top).offset(160)
+            make.centerX.equalTo(view.snp.centerX)
+        }
         
-        NSLayoutConstraint.activate([
-            welcomLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-            welcomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: welcomLabel.bottomAnchor, constant: 160),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-        ])
-        
-        NSLayoutConstraint.activate([
-            loginStackView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
-            loginStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            loginStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
-        ])
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(welcomLabel.snp.bottom).offset(160)
+            make.leading.equalTo(view.snp.leading).offset(40)
+            make.trailing.equalTo(view.snp.trailing).offset(-40)
+        }
+
+        loginStackView.snp.makeConstraints { make in
+            make.top.equalTo(stackView.snp.bottom).offset(60)
+            make.leading.equalTo(view.snp.leading).offset(40)
+            make.trailing.equalTo(view.snp.trailing).offset(-40)
+        }
     }
 }
 

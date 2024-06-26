@@ -51,35 +51,33 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
     }
     
     private func setupConstraints() {
-        
         userImageView.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         containerUserView.translatesAutoresizingMaskIntoConstraints = false
-        
         self.addSubview(containerUserView)
         containerUserView.addSubview(userImageView)
         containerUserView.addSubview(userNameLabel)
         
-        NSLayoutConstraint.activate([
-            containerUserView.topAnchor.constraint(equalTo: self.topAnchor),
-            containerUserView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            containerUserView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            containerUserView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+        containerUserView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.bottom.equalTo(self.snp.bottom)
+            make.leading.equalTo(self.snp.leading)
+            make.trailing.equalTo(self.snp.trailing)
+        }
         
-        NSLayoutConstraint.activate([
-            userImageView.topAnchor.constraint(equalTo: containerUserView.topAnchor),
-            userImageView.leadingAnchor.constraint(equalTo: containerUserView.leadingAnchor),
-            userImageView.trailingAnchor.constraint(equalTo: containerUserView.trailingAnchor),
-            userImageView.heightAnchor.constraint(equalTo: containerUserView.widthAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            userNameLabel.topAnchor.constraint(equalTo: userImageView.bottomAnchor),
-            userNameLabel.leadingAnchor.constraint(equalTo: containerUserView.leadingAnchor, constant: 8),
-            userNameLabel.trailingAnchor.constraint(equalTo: containerUserView.trailingAnchor, constant: -8),
-            userNameLabel.bottomAnchor.constraint(equalTo: containerUserView.bottomAnchor)
-        ])
+        userImageView.snp.makeConstraints { make in
+            make.top.equalTo(containerUserView.snp.top)
+            make.leading.equalTo(containerUserView.snp.leading)
+            make.trailing.equalTo(containerUserView.snp.trailing)
+            make.height.equalTo(containerUserView.snp.width)
+        }
+
+        userNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(userImageView.snp.bottom)
+            make.leading.equalTo(containerUserView.snp.leading).offset(8)
+            make.trailing.equalTo(containerUserView.snp.trailing).offset(-8)
+            make.bottom.equalTo(containerUserView.snp.bottom)
+        }
     }
     
     required init?(coder: NSCoder) {

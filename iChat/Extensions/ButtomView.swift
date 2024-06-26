@@ -12,27 +12,27 @@ class ButtomView: UIView {
     
     init(label: UILabel, buttom: UIButton) {
         super.init(frame: .zero)
-        
         self.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         buttom.translatesAutoresizingMaskIntoConstraints = false
-        
+
         self.addSubview(label)
         self.addSubview(buttom)
         
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.topAnchor),
-            label.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        ])
+        label.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.leading.equalTo(self.snp.leading)
+        }
+
+        buttom.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom).offset(20)
+            make.trailing.equalTo(self.snp.trailing)
+            make.leading.equalTo(self.snp.bottom)
+            make.height.equalTo(60)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            buttom.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-            buttom.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            buttom.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            buttom.heightAnchor.constraint(equalToConstant: 60)
-        ])
-        
-        self.bottomAnchor.constraint(equalTo: buttom.bottomAnchor).isActive = true
+        self.snp.makeConstraints { $0.bottom.equalTo(buttom.snp.bottom) }
     }
     
     required init?(coder: NSCoder) {

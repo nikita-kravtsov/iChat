@@ -15,12 +15,12 @@ class SectionHeader: UICollectionReusableView {
         title.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(title)
         
-        NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: self.topAnchor),
-            title.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            title.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            title.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+        title.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.bottom.equalTo(self.snp.bottom)
+            make.leading.equalTo(self.snp.leading)
+            make.trailing.equalTo(self.snp.trailing)
+        }
     }
     
     static let reuseId = "SectionHeader"

@@ -40,15 +40,14 @@ extension WaitingChatCell {
     private func setupConstraints() {
         
         friendImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         self.addSubview(friendImageView)
         
-        NSLayoutConstraint.activate([
-            friendImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            friendImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            friendImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            friendImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+        friendImageView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.bottom.equalTo(self.snp.bottom)
+            make.leading.equalTo(self.snp.leading)
+            make.trailing.equalTo(self.snp.trailing)
+        }
     }
 }
 
